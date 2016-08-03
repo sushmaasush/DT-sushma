@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin:0;
+}
+body{
+    background:url("../img/c..jpg") no-repeat;
+    background-size:cover;
+    height: 100vh;
+}
+.hi{
+    color:deeppink;
+    font-size:3em;
+    text-align: center;
+    padding: 5vh 0vh 5vh 0vh;
+    text-decoration: underline;
+}
+.text
+{
+    height:auto;
+    display:block;
+    margin:auto;
+}
+.ask{
+    padding-top: 2em;
+}
+	.img{
+   display: block;
+    margin: auto;
+
+}
+}
