@@ -26,7 +26,7 @@ public class Controller {
 	@RequestMapping("/")
 	public ModelAndView getHomepage()
 	{
-		product=new Product();
+		
 		ModelAndView mv=new ModelAndView("index");
 		return mv;
 	
