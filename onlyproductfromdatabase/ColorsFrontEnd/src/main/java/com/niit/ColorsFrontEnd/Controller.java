@@ -26,7 +26,10 @@ public class Controller {
 	@RequestMapping("/")
 	public ModelAndView getHomepage()
 	{
+<<<<<<< HEAD
 		
+=======
+>>>>>>> origin/master
 		ModelAndView mv=new ModelAndView("index");
 		return mv;
 	
