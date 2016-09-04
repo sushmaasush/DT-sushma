@@ -1,1 +1,4 @@
-com\niit\ColorsFrontEnd\Controller.class
+com\niit\ColorsFrontEnd\CartController.class
+com\niit\ColorsFrontEnd\LoginController.class
+com\niit\ColorsFrontEnd\AdminController.class
+com\niit\ColorsFrontEnd\HomeController.class

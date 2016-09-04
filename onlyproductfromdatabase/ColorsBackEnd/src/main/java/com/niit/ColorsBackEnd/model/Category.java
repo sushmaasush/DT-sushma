@@ -2,26 +2,31 @@ package com.niit.ColorsBackEnd.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Entity
+@Table
 @Component
 public class Category {
 
 	@Id
-	private String id;
-	private String name;
-	private String des;
-	public String getId() {
-		return id;
+	
+	private int categoryid;
+	
+	public int getCategoryid() {
+		return categoryid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setCategoryid(int categoryid) {
+		this.categoryid = categoryid;
 	}
 	public String getName() {
 		return name;
 	}
+	private String name;
+	private String des;
+	
 	public void setName(String name) {
 		this.name = name;
 	}

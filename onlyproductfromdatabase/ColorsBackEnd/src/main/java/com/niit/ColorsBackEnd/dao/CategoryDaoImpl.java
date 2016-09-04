@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ColorsBackEnd.model.Category;
+
+
 @Repository("categoryDao")
 public class CategoryDaoImpl implements CategoryDao{
 	
@@ -52,9 +54,9 @@ public class CategoryDaoImpl implements CategoryDao{
 		
 	}
 
-	public void delete(String id) {
+	public void delete(int id) {
 		Category CategoryToDelete = new Category();
-		CategoryToDelete.setId(id);
+		CategoryToDelete.setCategoryid(id);
 		sessionFactory.getCurrentSession().delete(CategoryToDelete);
 		
 	}

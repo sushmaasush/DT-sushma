@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.ColorsBackEnd.model.Product;
 import com.niit.ColorsBackEnd.model.Supplier;
+
+
 
 @Repository("supplierDao")
 public class SupplierDaoImpl implements SupplierDao {
@@ -38,6 +39,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		this.sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 		
 	}
+	@Transactional
 	public Supplier get(String id) {
 		String hql = "from Supplier where id='" + id+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -50,6 +52,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		}
 		return null;
 	}
+	@Transactional
 	public void delete(String id) {
 		Supplier SupplierToDelete = new Supplier();
 		SupplierToDelete.setId(id);

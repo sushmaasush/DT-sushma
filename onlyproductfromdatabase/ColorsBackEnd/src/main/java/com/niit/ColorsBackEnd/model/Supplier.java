@@ -2,10 +2,12 @@ package com.niit.ColorsBackEnd.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Entity
+@Table(name="Supplier")
 @Component
 public class Supplier {
 	@Id

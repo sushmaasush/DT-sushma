@@ -26,13 +26,16 @@ public class TestProduct {
 			System.out.println(cat.getPid()  + ":" +  cat.getPname() + ":" +  cat.getPprice() + ":" + cat.getPdes());
 		}*/
 			
-	    c.setPid("101");
+	    /*c.setPid("102");
 	    c.setPname("Shot");
-	    c.setPprice("100.00");
+	    c.setPcat("fragrance");
+	    c.setPprice(100);
+	    c.setPstock(1);
 	    c.setPdes("Fragrance");
 	    
+	    productDAO.getPro("101");
 	 
-	    productDAO.saveOrUpdate(c);
+	    productDAO.saveOrUpdate(c);*/
 	    
 	    
 	    for(Product cat : list)
@@ -40,11 +43,11 @@ public class TestProduct {
 			System.out.println(cat.getPid()  + ":" +  cat.getPname() + ":" +  cat.getPprice() + ":" + cat.getPdes());
 		}
 		
-		productDAO.delete("102");
+		/*productDAO.delete("102");
 		for(Product cat : list)
 		{
 			System.out.println(cat.getPid()  + ":" +  cat.getPname() + ":" +  cat.getPprice() + ":" + cat.getPdes());
-		}
+		}*/
 	}
 
 }

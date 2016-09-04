@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.ColorsBackEnd.dao.CartDao;
+import com.niit.ColorsBackEnd.dao.CartDaoImpl;
 import com.niit.ColorsBackEnd.dao.CategoryDao;
 import com.niit.ColorsBackEnd.dao.CategoryDaoImpl;
 
@@ -21,15 +23,17 @@ import com.niit.ColorsBackEnd.dao.CategoryDaoImpl;
 
 import com.niit.ColorsBackEnd.dao.ProductDao;
 import com.niit.ColorsBackEnd.dao.ProductDaoImpl;
+import com.niit.ColorsBackEnd.dao.ShippingDao;
+import com.niit.ColorsBackEnd.dao.ShippingDaoImpl;
 import com.niit.ColorsBackEnd.dao.SupplierDao;
 import com.niit.ColorsBackEnd.dao.SupplierDaoImpl;
 import com.niit.ColorsBackEnd.dao.UserDao;
 import com.niit.ColorsBackEnd.dao.UserDaoImpl;
-//import com.niit.ColorsBackEnd.dao.SupplierDao;
-//import com.niit.ColorsBackEnd.dao.SupplierDaoImpl;
+import com.niit.ColorsBackEnd.model.Cart;
 import com.niit.ColorsBackEnd.model.Category;
 //import com.niit.ColorsBackEnd.model.Category;
 import com.niit.ColorsBackEnd.model.Product;
+import com.niit.ColorsBackEnd.model.Shipping;
 import com.niit.ColorsBackEnd.model.Supplier;
 import com.niit.ColorsBackEnd.model.Users;
 
@@ -45,9 +49,9 @@ public class ApplicationContextConfig {
 	    public DataSource getDataSource() {
 	    	BasicDataSource dataSource = new BasicDataSource();
 	    	dataSource.setDriverClassName("org.h2.Driver");
-	    	dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+	    	dataSource.setUrl("jdbc:h2:tcp://localhost/~/cosmaticDb");
 	    	dataSource.setUsername("sa");
-	    	dataSource.setPassword("sa");
+	    	dataSource.setPassword("");
 	    	
 	    	return dataSource;
 	    }
@@ -55,6 +59,8 @@ public class ApplicationContextConfig {
 	  private Properties getHibernateProperties() {
 	    	Properties properties = new Properties();
 	    	properties.put("hibernate.show_sql", "true");
+	    	properties.put("hibernate.format_sql", "true");
+	    	properties.put("hibernate.hbm2ddl.auto", "update");
 	    	properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 	    	return properties;
 	    }
@@ -67,7 +73,9 @@ public class ApplicationContextConfig {
 	    	sessionBuilder.addAnnotatedClasses(Category.class);
 	    	sessionBuilder.addAnnotatedClasses(Product.class);
 	    	sessionBuilder.addAnnotatedClasses(Supplier.class);
-	    	sessionBuilder.addAnnotatedClasses(Users.class);  
+	    	sessionBuilder.addAnnotatedClasses(Users.class);
+	    	sessionBuilder.addAnnotatedClasses(Cart.class);
+	    	sessionBuilder.addAnnotatedClasses(Shipping.class);
 	    	return sessionBuilder.buildSessionFactory();
 	    }
 	    
@@ -89,7 +97,7 @@ public class ApplicationContextConfig {
 	    
 	    @Autowired
 	    @Bean(name="categoryDao")
-	    public CategoryDao getCatDao(SessionFactory sessionFactory)
+	    public CategoryDao getCategoryDao(SessionFactory sessionFactory)
 	    {
 	    	return new CategoryDaoImpl(sessionFactory);
 	    }
@@ -107,5 +115,19 @@ public class ApplicationContextConfig {
 	    	return new UserDaoImpl(sessionFactory);
 	    }
 
+	    @Autowired
+	    @Bean(name="cartDao")
+	    public CartDao getCartDao(SessionFactory sessionFactory)
+	    {
+			return new CartDaoImpl(sessionFactory);
+	    	
+	    }
+	    @Autowired
+	    @Bean(name="shippingDao")
+	    public ShippingDao getshDao(SessionFactory sessionFactory)
+	    {
+			return new ShippingDaoImpl(sessionFactory);
+	    	
+	    }
 
 }

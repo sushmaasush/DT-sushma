@@ -13,6 +13,6 @@ public interface CategoryDao {
 
 	public void saveOrUpdate(Category category);
 
-	public void delete(String id);
+	public void delete(int id);
 
 }
